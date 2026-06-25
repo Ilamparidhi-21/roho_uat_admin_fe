@@ -21,3 +21,5 @@ sudo systemctl start webhook
 sudo systemctl enable webhook
 sudo systemctl status webhook
 
+journalctl -u webhook -f
+
