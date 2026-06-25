@@ -1,0 +1,11 @@
+{
+  "rules": [
+    {
+      "match": {
+        "payload[0].branch": "uat",
+        "payload[0].ref": "refs/heads/uat"
+      },
+      "action": "bash /home/ubuntu/deploy/deploy.sh"
+    }
+  ]
+}
