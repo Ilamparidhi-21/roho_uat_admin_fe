@@ -1,0 +1,14 @@
+sudo nano /etc/systemd/system/webhook.service
+
+[Unit]
+Description=GitHub Webhook Listener
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/webhook -hooks /home/ubuntu/hooks.json -port 9000 -verbose
+WorkingDirectory=/home/ubuntu
+Restart=always
+User=ubuntu
+
+[Install]
+WantedBy=multi-user.target
