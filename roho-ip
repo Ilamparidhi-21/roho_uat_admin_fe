@@ -1,0 +1,27 @@
+server {
+    listen 8085;
+    listen [::]:8085;
+
+    server_name _;
+
+    root /var/www/roho-ip;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location = /.well-known/apple-app-site-association {
+        default_type application/json;
+        add_header Content-Type application/json;
+        add_header Access-Control-Allow-Origin "*";
+        try_files $uri =404;
+    }
+
+    location = /.well-known/assetlinks.json {
+        default_type application/json;
+        add_header Content-Type application/json;
+        add_header Access-Control-Allow-Origin "*";
+        try_files $uri =404;
+    }
+}
